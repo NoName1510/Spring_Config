@@ -1,8 +1,12 @@
-package pojobean;
+package dependencyInjection;
 
-public class AccountServiceImp implements AccountService{
+import pojobean.Account;
+import pojobean.AccountRepository;
+import pojobean.AccountService;
 
-    private  AccountRepository accountRepository;
+public class AccountServiceSetImp implements AccountService {
+
+    private AccountRepository accountRepository;
 
     public void setAccountRepository(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;

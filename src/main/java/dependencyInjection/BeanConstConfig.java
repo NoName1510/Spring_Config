@@ -7,10 +7,10 @@ import pojobean.AccountRepositoryImp;
 import pojobean.AccountService;
 
 @Configuration
-public class BeanContConfig {
+public class BeanConstConfig {
     @Bean
     public AccountService accountService(){
-        AccountServiceContImp bean = new AccountServiceContImp(accountDao());
+        AccountServiceConstImp bean = new AccountServiceConstImp(accountDao());
         return bean;
     }
 

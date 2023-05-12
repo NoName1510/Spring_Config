@@ -4,11 +4,11 @@ import pojobean.Account;
 import pojobean.AccountRepository;
 import pojobean.AccountService;
 
-public class AccountServiceContImp implements AccountService {
+public class AccountServiceConstImp implements AccountService {
 
     private AccountRepository accountRepository;
 
-    public AccountServiceContImp(AccountRepository accountRepository) {
+    public AccountServiceConstImp(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 

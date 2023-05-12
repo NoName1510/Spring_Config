@@ -1,19 +1,31 @@
 package org.example;
 
+import javabaseconfig.BeanConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pojobean.AccountService;
+
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlbaseconfig/beans.xml");
+//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationbasedconfiguration/beans.xml");
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+
+        System.out.println("Before money transfer");
+        System.out.println("Account 1 balance :" +accountService.getAccount(1).getBalance());
+        System.out.println("Account 2 balance :" +accountService.getAccount(2).getBalance());
+
+        accountService.tranferMoney(1,2,5.0);
+        System.out.println("=================================");
+        System.out.println("After transfer");
+        System.out.println("Account 1 balance :" +accountService.getAccount(1).getBalance());
+        System.out.println("Account 2 balance :" +accountService.getAccount(2).getBalance());
+
     }
 }

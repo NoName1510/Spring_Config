@@ -3,11 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="accountRepository" class="pojobean.AccountRepositoryImp" />
-    <bean id="accountService" class="pojobean.AccountServiceImp">
-        <property name="accountRepository" ref="accountRepository"/>
-    </bean>
 
+    <bean id="accountRepository" class="pojobean.AccountRepositoryImp" />
+    <bean id="accountService" class="pojobean.AccountServiceImp" autowire="byType"/>
 
 </beans>
 

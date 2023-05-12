@@ -1,12 +1,16 @@
-package pojobean;
+package annotationbasedconfiguration;
 
-public class AccountServiceImp implements AccountService{
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import pojobean.Account;
+import pojobean.AccountRepository;
+import pojobean.AccountService;
+@Service("accountService")
+public class AccountService2Imp implements AccountService {
 
-    private  AccountRepository accountRepository;
+    @Autowired
+    private AccountRepository accountRepository;
 
-    public void setAccountRepository(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
 
     @Override
     public void tranferMoney(long fromAccountId, long toAccountId, double amount) {
